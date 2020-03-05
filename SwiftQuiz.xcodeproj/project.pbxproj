@@ -14,6 +14,8 @@
 		8016072424110807002C2E5D /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8016072324110807002C2E5D /* ResultsViewController.swift */; };
 		8016072624110826002C2E5D /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8016072524110826002C2E5D /* ResultsViewController.xib */; };
 		8016072824110C96002C2E5D /* UITableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8016072724110C96002C2E5D /* UITableViewHelpers.swift */; };
+		8016072A24110F66002C2E5D /* CorrectAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8016072924110F66002C2E5D /* CorrectAnswerCell.xib */; };
+		8016072C241112D9002C2E5D /* WrongAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8016072B241112D9002C2E5D /* WrongAnswerCell.xib */; };
 		8056BC312410C1340028B16E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8056BC302410C1340028B16E /* AppDelegate.swift */; };
 		8056BC3A2410C1360028B16E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8056BC392410C1360028B16E /* Assets.xcassets */; };
 		8056BC3D2410C1360028B16E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8056BC3B2410C1360028B16E /* LaunchScreen.storyboard */; };
@@ -37,6 +39,8 @@
 		8016072324110807002C2E5D /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		8016072524110826002C2E5D /* ResultsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
 		8016072724110C96002C2E5D /* UITableViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewHelpers.swift; sourceTree = "<group>"; };
+		8016072924110F66002C2E5D /* CorrectAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CorrectAnswerCell.xib; sourceTree = "<group>"; };
+		8016072B241112D9002C2E5D /* WrongAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WrongAnswerCell.xib; sourceTree = "<group>"; };
 		8056BC2D2410C1340028B16E /* SwiftQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8056BC302410C1340028B16E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8056BC392410C1360028B16E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 				8056BC3E2410C1360028B16E /* Info.plist */,
 				8016072324110807002C2E5D /* ResultsViewController.swift */,
 				8016072524110826002C2E5D /* ResultsViewController.xib */,
+				8016072924110F66002C2E5D /* CorrectAnswerCell.xib */,
+				8016072B241112D9002C2E5D /* WrongAnswerCell.xib */,
 			);
 			path = SwiftQuiz;
 			sourceTree = "<group>";
@@ -190,8 +196,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8056BC3D2410C1360028B16E /* LaunchScreen.storyboard in Resources */,
+				8016072C241112D9002C2E5D /* WrongAnswerCell.xib in Resources */,
 				8056BC3A2410C1360028B16E /* Assets.xcassets in Resources */,
 				8016071D2410F3E1002C2E5D /* QuestionViewController.xib in Resources */,
+				8016072A24110F66002C2E5D /* CorrectAnswerCell.xib in Resources */,
 				8016072624110826002C2E5D /* ResultsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,13 +10,20 @@ import Foundation
 import UIKit
 
 struct PresentableAnswer {
+    let question: String
+    let answer: String
     let isCorrect: Bool
 }
 
 class CorrectAnswerCell: UITableViewCell {
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answerLabel: UILabel!
     
 }
+
 class WrongAnswerCell: UITableViewCell {
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answerLabel: UILabel!
     
 }
 
@@ -38,6 +45,8 @@ class ResultsViewController: UIViewController {
         super.viewDidLoad()
         
         headerLabel.text = summary
+        tableView.register(UINib(nibName: "CorrectAnswerCell", bundle: nil), forCellReuseIdentifier: "CorrectAnswerCell")
+        tableView.register(UINib(nibName: "WrongAnswerCell", bundle: nil), forCellReuseIdentifier: "WrongAnswerCell")
     }
 }
 
@@ -48,9 +57,26 @@ extension ResultsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return WrongAnswerCell()
         let answer = answers[indexPath.row]
-        return answer.isCorrect ? CorrectAnswerCell() : WrongAnswerCell()
+        return answer.isCorrect ? correctAnswerCell(for: answer) : wrongAnswerCell(for: answer)
+//        if answer.isCorrect {
+//            return correctAnswerCell(for: answer)
+//        }
+//        return WrongAnswerCell()
+    }
+    
+    private func correctAnswerCell(for answer: PresentableAnswer) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CorrectAnswerCell") as! CorrectAnswerCell
+        cell.questionLabel.text = answer.question
+        cell.answerLabel.text = answer.answer
+        return cell
+    }
+    
+    private func wrongAnswerCell(for answer: PresentableAnswer) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WrongAnswerCell") as! WrongAnswerCell
+        cell.questionLabel.text = answer.question
+        cell.answerLabel.text = answer.answer
+        return cell
     }
     
 }
