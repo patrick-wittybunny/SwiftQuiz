@@ -24,6 +24,7 @@ class CorrectAnswerCell: UITableViewCell {
 class WrongAnswerCell: UITableViewCell {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var correctAnswerLabel: UILabel!
     
 }
 
@@ -75,7 +76,7 @@ extension ResultsViewController: UITableViewDataSource {
     private func wrongAnswerCell(for answer: PresentableAnswer) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WrongAnswerCell") as! WrongAnswerCell
         cell.questionLabel.text = answer.question
-        cell.answerLabel.text = answer.answer
+        cell.correctAnswerLabel.text = answer.answer
         return cell
     }
     
