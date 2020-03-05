@@ -32,6 +32,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Kj8-Wx-jsg"/>
+                        <outlet property="delegate" destination="-1" id="8gL-Pf-id0"/>
                     </connections>
                 </tableView>
             </subviews>
