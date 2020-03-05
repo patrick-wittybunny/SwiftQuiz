@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print($0)
         }
         _ = viewController.view
-        viewController.tableView.allowsMultipleSelection = true
+        viewController.tableView.allowsMultipleSelection = false
         
         window.rootViewController = viewController
         
