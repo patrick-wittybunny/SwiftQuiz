@@ -15,6 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        let viewController = QuestionViewController(question: "A question?", options: ["Options 1", "Options 2"]) {
+            print($0)
+        }
+        _ = viewController.view
+        viewController.tableView.allowsMultipleSelection = true
+        
+        window.rootViewController = viewController
+        
+        self.window = window
+        window.makeKeyAndVisible()
+        
         return true
     }
 
