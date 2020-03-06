@@ -17,11 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = QuestionViewController(question: "A question?", options: ["Options 1", "Options 2"]) {
-            print($0)
-        }
-        _ = viewController.view
-        viewController.tableView.allowsMultipleSelection = false
+        
+//        let viewController = QuestionViewController(question: "A question?", options: ["Options 1", "Options 2"]) {
+//            print($0)
+//        }
+//        _ = viewController.view
+//        viewController.tableView.allowsMultipleSelection = false
+        
+        let viewController = ResultsViewController(summary: "You got 1/2 correct", answers: [
+            PresentableAnswer(question: "Which bias", answer: "Sana", wrongAnswer: "Momo"),
+            PresentableAnswer(question: "What nationality", answer: "Filipino", wrongAnswer: nil),
+        ])
         
         window.rootViewController = viewController
         
