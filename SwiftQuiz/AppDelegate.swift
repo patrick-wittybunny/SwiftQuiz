@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        viewController.tableView.allowsMultipleSelection = false
         
         let viewController = ResultsViewController(summary: "You got 1/2 correct", answers: [
-            PresentableAnswer(question: "Which bias", answer: "Sana", wrongAnswer: "Momo"),
-            PresentableAnswer(question: "What nationality", answer: "Filipino", wrongAnswer: nil),
+            PresentableAnswer(question: "Which bias", answer: "Sana Sana Sana Sana Sana Sana Sana Sana Sana Sana", wrongAnswer: "Momo"),
+            PresentableAnswer(question: "What nationality What nationality What nationality What nationality What nationality What nationality", answer: "Filipino", wrongAnswer: nil),
         ])
         
         window.rootViewController = viewController
