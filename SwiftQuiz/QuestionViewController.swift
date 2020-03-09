@@ -16,8 +16,8 @@ class QuestionViewController: UIViewController {
     
     private let reuseIdentifier = "Cell"
     
-    private var question = ""
-    private var options = [String]()
+    private(set) var question = ""
+    private(set) var options = [String]()
     private var selection: (([String]) -> Void)? = nil
     
     convenience init(question: String, options: [String], selection: @escaping ([String]) -> Void) {
