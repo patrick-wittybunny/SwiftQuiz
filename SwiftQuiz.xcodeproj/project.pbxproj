@@ -28,6 +28,8 @@
 		8047F77F24162F7A0097FC75 /* ResultsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047F77E24162F7A0097FC75 /* ResultsPresenterTest.swift */; };
 		8047F78124162FE60097FC75 /* ResultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047F78024162FE60097FC75 /* ResultsHelper.swift */; };
 		8047F783241630C10097FC75 /* ResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047F782241630C10097FC75 /* ResultsPresenter.swift */; };
+		8047F78524163C2F0097FC75 /* QuestionPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047F78424163C2F0097FC75 /* QuestionPresenterTest.swift */; };
+		8047F78724163C410097FC75 /* QuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047F78624163C410097FC75 /* QuestionPresenter.swift */; };
 		8056BC312410C1340028B16E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8056BC302410C1340028B16E /* AppDelegate.swift */; };
 		8056BC3A2410C1360028B16E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8056BC392410C1360028B16E /* Assets.xcassets */; };
 		8056BC3D2410C1360028B16E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8056BC3B2410C1360028B16E /* LaunchScreen.storyboard */; };
@@ -82,6 +84,8 @@
 		8047F77E24162F7A0097FC75 /* ResultsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenterTest.swift; sourceTree = "<group>"; };
 		8047F78024162FE60097FC75 /* ResultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsHelper.swift; sourceTree = "<group>"; };
 		8047F782241630C10097FC75 /* ResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenter.swift; sourceTree = "<group>"; };
+		8047F78424163C2F0097FC75 /* QuestionPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenterTest.swift; sourceTree = "<group>"; };
+		8047F78624163C410097FC75 /* QuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenter.swift; sourceTree = "<group>"; };
 		8056BC2D2410C1340028B16E /* SwiftQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8056BC302410C1340028B16E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8056BC392410C1360028B16E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				8047F778241616370097FC75 /* ViewControllerFactory.swift */,
 				8047F77C241616D00097FC75 /* iOSViewControllerFactory.swift */,
 				8047F782241630C10097FC75 /* ResultsPresenter.swift */,
+				8047F78624163C410097FC75 /* QuestionPresenter.swift */,
 			);
 			path = SwiftQuiz;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				8047F77A241616660097FC75 /* iOSViewControllerFactoryTest.swift */,
 				8047F77E24162F7A0097FC75 /* ResultsPresenterTest.swift */,
 				8047F78024162FE60097FC75 /* ResultsHelper.swift */,
+				8047F78424163C2F0097FC75 /* QuestionPresenterTest.swift */,
 			);
 			path = SwiftQuizTests;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 				8016072424110807002C2E5D /* ResultsViewController.swift in Sources */,
 				803F0133241259E80033424A /* Question.swift in Sources */,
 				805C17AE241221AE0073C597 /* PresentableAnswer.swift in Sources */,
+				8047F78724163C410097FC75 /* QuestionPresenter.swift in Sources */,
 				805C17B0241221D20073C597 /* CorrectAnswerCell.swift in Sources */,
 				805C17AC241221980073C597 /* UITableViewExtensions.swift in Sources */,
 				8047F783241630C10097FC75 /* ResultsPresenter.swift in Sources */,
@@ -311,6 +318,7 @@
 				803F013424125A030033424A /* QuestionTest.swift in Sources */,
 				8047F77F24162F7A0097FC75 /* ResultsPresenterTest.swift in Sources */,
 				803F012C24123D430033424A /* NavigationControllerRouterTest.swift in Sources */,
+				8047F78524163C2F0097FC75 /* QuestionPresenterTest.swift in Sources */,
 				8016071F2410F5BF002C2E5D /* QuestionViewControllerTest.swift in Sources */,
 				8016072824110C96002C2E5D /* UITableViewHelpers.swift in Sources */,
 				801607222411079C002C2E5D /* ResultsViewControllerTest.swift in Sources */,
