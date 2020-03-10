@@ -1,0 +1,5 @@
+os: osx
+osx_image: xcode11.3
+language: swift
+script: xcodebuild clean build test -workspace SwiftQuiz.xcworkspace -scheme "CI" -sdk iphonesimulator -destination "playform=iOS Simulator,OS=13.3,name=iPhone 11 Pro Max" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
+
