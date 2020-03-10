@@ -219,7 +219,6 @@
 		8050405A2417962E00DB59BA /* Result */ = {
 			isa = PBXGroup;
 			children = (
-				80504062241796BC00DB59BA /* Helpers */,
 				8047F782241630C10097FC75 /* ResultsPresenter.swift */,
 				805C17AD241221AE0073C597 /* PresentableAnswer.swift */,
 			);
@@ -248,8 +247,8 @@
 		8050405D2417965400DB59BA /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				8047F78424163C2F0097FC75 /* QuestionPresenterTest.swift */,
-				8047F77E24162F7A0097FC75 /* ResultsPresenterTest.swift */,
+				8050406424179EBD00DB59BA /* Result */,
+				8050406324179EB700DB59BA /* Question */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -294,6 +293,23 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		8050406324179EB700DB59BA /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				8047F78424163C2F0097FC75 /* QuestionPresenterTest.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		8050406424179EBD00DB59BA /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				80504062241796BC00DB59BA /* Helpers */,
+				8047F77E24162F7A0097FC75 /* ResultsPresenterTest.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
 		8056BC242410C1340028B16E = {
 			isa = PBXGroup;
 			children = (
@@ -316,10 +332,10 @@
 		8056BC2F2410C1340028B16E /* SwiftQuiz */ = {
 			isa = PBXGroup;
 			children = (
-				805040512417954B00DB59BA /* UI */,
 				805040502417953D00DB59BA /* Main */,
 				8050404F2417953800DB59BA /* Presentation */,
 				8050404E2417953100DB59BA /* Routing */,
+				805040512417954B00DB59BA /* UI */,
 			);
 			path = SwiftQuiz;
 			sourceTree = "<group>";
@@ -612,7 +628,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66RA96TWLA;
-				INFOPLIST_FILE = SwiftQuiz/Info.plist;
+				INFOPLIST_FILE = SwiftQuiz/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -630,7 +646,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66RA96TWLA;
-				INFOPLIST_FILE = SwiftQuiz/Info.plist;
+				INFOPLIST_FILE = SwiftQuiz/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -648,7 +664,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66RA96TWLA;
-				INFOPLIST_FILE = SwiftQuizTests/Info.plist;
+				INFOPLIST_FILE = SwiftQuizTests/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -668,7 +684,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66RA96TWLA;
-				INFOPLIST_FILE = SwiftQuizTests/Info.plist;
+				INFOPLIST_FILE = SwiftQuizTests/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
