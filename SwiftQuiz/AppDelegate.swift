@@ -13,24 +13,32 @@ import QuizEngine
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var game: Game<Question<String>, [String], NavigationControllerRouter>?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-//        let viewController = QuestionViewController(question: "A question?", options: ["Options 1", "Options 2"]) {
-//            print($0)
-//        }
-//        _ = viewController.view
-//        viewController.tableView.allowsMultipleSelection = false
+        let question = Question.singleAnswer("Favorite Twice member?")
+        let question2 = Question.multipleAnswer("Twice member/s?")
         
-        let viewController = ResultsViewController(summary: "You got 1/2 correct", answers: [
-            PresentableAnswer(question: "Which bias", answer: "Sana Sana Sana Sana Sana Sana Sana Sana Sana Sana", wrongAnswer: "Momo"),
-            PresentableAnswer(question: "What nationality What nationality What nationality What nationality What nationality What nationality", answer: "Filipino", wrongAnswer: nil),
-        ])
+        let questions = [question, question2]
+
+        let option1 = "Sana"
+        let option2 = "Chaeyoung"
+        let option3 = "Minju"
+        let options = [option1, option2, option3]
+    
+        let correctAnswers = [question: [option1], question2: [option1, option2]]
         
-        window.rootViewController = viewController
+        let navigationController = UINavigationController()
+        let factory = iOSViewControllerFactory(questions: questions, options: [question: options, question2: options], correctAnswers: correctAnswers)
+        let router = NavigationControllerRouter(navigationController, factory: factory)
+        
+        game = startGame(questions: questions, router: router, correctAnswers: correctAnswers)
+        
+        window.rootViewController = navigationController
         
         self.window = window
         window.makeKeyAndVisible()

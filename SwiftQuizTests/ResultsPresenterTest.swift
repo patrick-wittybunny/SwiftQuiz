@@ -58,8 +58,8 @@ class ResultsPresenterTest: XCTestCase {
     }
     
     func test_presentableAnswers_withTwoQuestions_mapsOrderedAnswers() {
-        let answers = [multipleAnswerQuestion: ["A2", "A3"], singleAnswerQuestion: ["A1"]]
-        let correctAnswers = [multipleAnswerQuestion: ["A2", "A3"], singleAnswerQuestion: ["A1"]]
+        let answers = [multipleAnswerQuestion: ["A1", "A4"], singleAnswerQuestion: ["A1"]]
+        let correctAnswers = [multipleAnswerQuestion: ["A1", "A4"], singleAnswerQuestion: ["A1"]]
         let orderedQuestions = [singleAnswerQuestion, multipleAnswerQuestion]
         let result = Results(answers: answers, score: 2)
         let sut = ResultsPresenter(questions: orderedQuestions, result: result, correctAnswers: correctAnswers)
@@ -71,7 +71,7 @@ class ResultsPresenterTest: XCTestCase {
         
         XCTAssertEqual(sut.presentableAnswers.count, 2)
         XCTAssertEqual(sut.presentableAnswers.last!.question, "Q2")
-        XCTAssertEqual(sut.presentableAnswers.last!.answer, "A2, A3")
+        XCTAssertEqual(sut.presentableAnswers.last!.answer, "A1, A4")
         XCTAssertEqual(sut.presentableAnswers.last!.wrongAnswer, nil)
     }
  
