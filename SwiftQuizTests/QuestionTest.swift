@@ -8,7 +8,7 @@
 
 import Foundation
 import XCTest
-@testable import SwiftQuiz
+@testable import QuizEngine
 
 class QuestionTest: XCTestCase {
     

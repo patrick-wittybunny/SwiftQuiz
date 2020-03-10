@@ -15,6 +15,8 @@ class NavigationControllerRouterTest: XCTestCase {
 
     let navigationController = NonAnimatedNavigationController()
     let factory = ViewControllerFactoryStub()
+    let singleAnswerQuestion = Question.singleAnswer("Q1")
+    let multipleAnswerQuestion = Question.multipleAnswer("Q2")
     
     lazy var sut: NavigationControllerRouter = {
         return NavigationControllerRouter(self.navigationController, factory: self.factory)
@@ -23,30 +25,93 @@ class NavigationControllerRouterTest: XCTestCase {
     func test_routeToQuestion_showsQuestionController() {
         let viewController = UIViewController()
         let secondViewController = UIViewController()
-        factory.stub(question: Question.singleAnswer("Q1"), with: viewController)
-        factory.stub(question: Question.singleAnswer("Q2"), with: secondViewController)
+        factory.stub(question: singleAnswerQuestion, with: viewController)
+        factory.stub(question: multipleAnswerQuestion, with: secondViewController)
         
-        sut.routeTo(question: Question.singleAnswer("Q1"), answerCallback: { _ in })
-        sut.routeTo(question: Question.singleAnswer("Q2"), answerCallback: { _ in })
+        sut.routeTo(question: singleAnswerQuestion, answerCallback: { _ in })
+        sut.routeTo(question: multipleAnswerQuestion, answerCallback: { _ in })
         
         XCTAssertEqual(navigationController.viewControllers.count, 2)
         XCTAssertEqual(navigationController.viewControllers.first, viewController)
         XCTAssertEqual(navigationController.viewControllers.last, secondViewController)
     }
     
-    func test_routeToSecondQuestion_presentsQuestionController_withRightCallback() {
+    func test_routeToQuestion_singleAnswer_answerCallback_progressesToNextQuestion() {
         var callbackFired = false
         
-        sut.routeTo(question: Question.singleAnswer("Q1"), answerCallback: { _ in callbackFired = true })
+        sut.routeTo(question: singleAnswerQuestion, answerCallback: { _ in callbackFired = true })
         
-        factory.answerCallbacks[Question.singleAnswer("Q1")]!([""])
+        factory.answerCallbacks[singleAnswerQuestion]!([""])
         
         XCTAssertTrue(callbackFired)
     }
     
+    func test_routeToQuestion_multipleAnswer_answerCallback_doesNotProgressToNextQuestion() {
+        var callbackFired = false
+        
+        sut.routeTo(question: multipleAnswerQuestion, answerCallback: { _ in callbackFired = true })
+        
+        factory.answerCallbacks[multipleAnswerQuestion]!(["anything"])
+        
+        XCTAssertFalse(callbackFired)
+    }
+    
+    func test_routeToQuestion_multipleAnswer_configuresViewControllerWithSubmitButton() {
+        let viewController = UIViewController()
+        
+        factory.stub(question: multipleAnswerQuestion, with: viewController)
+        
+        sut.routeTo(question: multipleAnswerQuestion, answerCallback: { _ in })
+     
+        XCTAssertNotNil(viewController.navigationItem.rightBarButtonItem)
+    }
+    
+    func test_routeToQuestion_singleAnswer_configuresViewControllerWithoutSubmitButton() {
+        let viewController = UIViewController()
+        
+        factory.stub(question: singleAnswerQuestion, with: viewController)
+        
+        sut.routeTo(question: singleAnswerQuestion, answerCallback: { _ in })
+     
+        XCTAssertNil(viewController.navigationItem.rightBarButtonItem)
+    }
+    
+    func test_routeToQuestion_multipleAnswerSubmitButton_isDisabledWhenNoAnswerSelected() {
+        let viewController = UIViewController()
+
+        factory.stub(question: multipleAnswerQuestion, with: viewController)
+
+        sut.routeTo(question: multipleAnswerQuestion, answerCallback: { _ in })
+        XCTAssertFalse(viewController.navigationItem.rightBarButtonItem!.isEnabled)
+
+        factory.answerCallbacks[multipleAnswerQuestion]!([""])
+        XCTAssertTrue(viewController.navigationItem.rightBarButtonItem!.isEnabled)
+        
+        factory.answerCallbacks[multipleAnswerQuestion]!([])
+        XCTAssertFalse(viewController.navigationItem.rightBarButtonItem!.isEnabled)
+    }
+    
+    func test_routeToQuestion_multipleAnswerSubmitButton_progressesToNextQuestion() {
+        let viewController = UIViewController()
+        
+        var callbackFired = false
+        
+        factory.stub(question: multipleAnswerQuestion, with: viewController)
+
+        sut.routeTo(question: multipleAnswerQuestion, answerCallback: { _ in callbackFired = true })
+
+        factory.answerCallbacks[multipleAnswerQuestion]!([""])
+        XCTAssertTrue(viewController.navigationItem.rightBarButtonItem!.isEnabled)
+        
+        viewController.navigationItem.rightBarButtonItem!.simulateTap()
+        
+        XCTAssertTrue(callbackFired)
+    }
+
+    
     func test_routeToResult_showsResult() {
         let viewController = UIViewController()
-        let result = Results(answers: [Question.singleAnswer("Q1"): ["A1"]], score: 10)
+        let result = Results(answers: [singleAnswerQuestion: ["A1"]], score: 10)
         
         let secondViewController = UIViewController()
         let secondResult = Results(answers: [Question.singleAnswer("Q2"): ["A2"]], score: 20)
@@ -94,4 +159,10 @@ class NavigationControllerRouterTest: XCTestCase {
         }
     }
     
+}
+
+private extension UIBarButtonItem {
+    func simulateTap() {
+        target!.performSelector(onMainThread: action!, with: nil, waitUntilDone: true)
+    }
 }
