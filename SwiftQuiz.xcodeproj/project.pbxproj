@@ -18,7 +18,6 @@
 		803F00FA24123B740033424A /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F00F924123B740033424A /* QuestionViewController.swift */; };
 		803F012C24123D430033424A /* NavigationControllerRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F012B24123D430033424A /* NavigationControllerRouterTest.swift */; };
 		803F012E24123E150033424A /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F012D24123E150033424A /* NavigationControllerRouter.swift */; };
-		803F013424125A030033424A /* QuestionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F012F2412579C0033424A /* QuestionTest.swift */; };
 		8047F779241616370097FC75 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047F778241616370097FC75 /* ViewControllerFactory.swift */; };
 		8047F77B241616660097FC75 /* iOSViewControllerFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047F77A241616660097FC75 /* iOSViewControllerFactoryTest.swift */; };
 		8047F77D241616D00097FC75 /* iOSViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047F77C241616D00097FC75 /* iOSViewControllerFactory.swift */; };
@@ -74,7 +73,6 @@
 		803F00F924123B740033424A /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		803F012B24123D430033424A /* NavigationControllerRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouterTest.swift; sourceTree = "<group>"; };
 		803F012D24123E150033424A /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
-		803F012F2412579C0033424A /* QuestionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTest.swift; sourceTree = "<group>"; };
 		8047F778241616370097FC75 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		8047F77A241616660097FC75 /* iOSViewControllerFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactoryTest.swift; sourceTree = "<group>"; };
 		8047F77C241616D00097FC75 /* iOSViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -124,6 +122,178 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8050404E2417953100DB59BA /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				803F012D24123E150033424A /* NavigationControllerRouter.swift */,
+				8047F778241616370097FC75 /* ViewControllerFactory.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		8050404F2417953800DB59BA /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8050405A2417962E00DB59BA /* Result */,
+				805040592417962900DB59BA /* Question */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		805040502417953D00DB59BA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8056BC3E2410C1360028B16E /* Info.plist */,
+				8056BC302410C1340028B16E /* AppDelegate.swift */,
+				8047F77C241616D00097FC75 /* iOSViewControllerFactory.swift */,
+				8056BC392410C1360028B16E /* Assets.xcassets */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		805040512417954B00DB59BA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				805040582417960E00DB59BA /* Launch */,
+				80504057241795FE00DB59BA /* Helpers */,
+				80504053241795BB00DB59BA /* Result */,
+				80504052241795B600DB59BA /* Question */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		80504052241795B600DB59BA /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				803F00F924123B740033424A /* QuestionViewController.swift */,
+				8016071B2410F25A002C2E5D /* QuestionViewController.xib */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		80504053241795BB00DB59BA /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				8016072324110807002C2E5D /* ResultsViewController.swift */,
+				8016072524110826002C2E5D /* ResultsViewController.xib */,
+				80504056241795E500DB59BA /* cells */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		80504056241795E500DB59BA /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				805C17AF241221D20073C597 /* CorrectAnswerCell.swift */,
+				8016072924110F66002C2E5D /* CorrectAnswerCell.xib */,
+				805C17B1241221E80073C597 /* WrongAnswerCell.swift */,
+				8016072B241112D9002C2E5D /* WrongAnswerCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		80504057241795FE00DB59BA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				805C17AB241221980073C597 /* UITableViewExtensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		805040582417960E00DB59BA /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				8056BC3B2410C1360028B16E /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		805040592417962900DB59BA /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				8047F78624163C410097FC75 /* QuestionPresenter.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		8050405A2417962E00DB59BA /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				80504062241796BC00DB59BA /* Helpers */,
+				8047F782241630C10097FC75 /* ResultsPresenter.swift */,
+				805C17AD241221AE0073C597 /* PresentableAnswer.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		8050405B2417964A00DB59BA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8047F77A241616660097FC75 /* iOSViewControllerFactoryTest.swift */,
+				8056BC4C2410C16D0028B16E /* Info.plist */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8050405C2417964F00DB59BA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				805040612417969500DB59BA /* Result */,
+				805040602417968E00DB59BA /* Question */,
+				8050405F2417967C00DB59BA /* Helpers */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8050405D2417965400DB59BA /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8047F78424163C2F0097FC75 /* QuestionPresenterTest.swift */,
+				8047F77E24162F7A0097FC75 /* ResultsPresenterTest.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		8050405E2417965900DB59BA /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				803F012B24123D430033424A /* NavigationControllerRouterTest.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		8050405F2417967C00DB59BA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8016072724110C96002C2E5D /* UITableViewHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		805040602417968E00DB59BA /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				801607172410F12D002C2E5D /* QuestionViewControllerTest.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		805040612417969500DB59BA /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				801607212411079C002C2E5D /* ResultsViewControllerTest.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		80504062241796BC00DB59BA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8047F78024162FE60097FC75 /* ResultsHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		8056BC242410C1340028B16E = {
 			isa = PBXGroup;
 			children = (
@@ -146,25 +316,10 @@
 		8056BC2F2410C1340028B16E /* SwiftQuiz */ = {
 			isa = PBXGroup;
 			children = (
-				803F00F924123B740033424A /* QuestionViewController.swift */,
-				8016071B2410F25A002C2E5D /* QuestionViewController.xib */,
-				8056BC302410C1340028B16E /* AppDelegate.swift */,
-				8056BC392410C1360028B16E /* Assets.xcassets */,
-				8056BC3B2410C1360028B16E /* LaunchScreen.storyboard */,
-				8056BC3E2410C1360028B16E /* Info.plist */,
-				8016072324110807002C2E5D /* ResultsViewController.swift */,
-				8016072524110826002C2E5D /* ResultsViewController.xib */,
-				8016072924110F66002C2E5D /* CorrectAnswerCell.xib */,
-				8016072B241112D9002C2E5D /* WrongAnswerCell.xib */,
-				805C17AB241221980073C597 /* UITableViewExtensions.swift */,
-				805C17AD241221AE0073C597 /* PresentableAnswer.swift */,
-				805C17AF241221D20073C597 /* CorrectAnswerCell.swift */,
-				805C17B1241221E80073C597 /* WrongAnswerCell.swift */,
-				803F012D24123E150033424A /* NavigationControllerRouter.swift */,
-				8047F778241616370097FC75 /* ViewControllerFactory.swift */,
-				8047F77C241616D00097FC75 /* iOSViewControllerFactory.swift */,
-				8047F782241630C10097FC75 /* ResultsPresenter.swift */,
-				8047F78624163C410097FC75 /* QuestionPresenter.swift */,
+				805040512417954B00DB59BA /* UI */,
+				805040502417953D00DB59BA /* Main */,
+				8050404F2417953800DB59BA /* Presentation */,
+				8050404E2417953100DB59BA /* Routing */,
 			);
 			path = SwiftQuiz;
 			sourceTree = "<group>";
@@ -172,16 +327,10 @@
 		8056BC492410C16D0028B16E /* SwiftQuizTests */ = {
 			isa = PBXGroup;
 			children = (
-				803F012F2412579C0033424A /* QuestionTest.swift */,
-				801607172410F12D002C2E5D /* QuestionViewControllerTest.swift */,
-				8056BC4C2410C16D0028B16E /* Info.plist */,
-				801607212411079C002C2E5D /* ResultsViewControllerTest.swift */,
-				8016072724110C96002C2E5D /* UITableViewHelpers.swift */,
-				803F012B24123D430033424A /* NavigationControllerRouterTest.swift */,
-				8047F77A241616660097FC75 /* iOSViewControllerFactoryTest.swift */,
-				8047F77E24162F7A0097FC75 /* ResultsPresenterTest.swift */,
-				8047F78024162FE60097FC75 /* ResultsHelper.swift */,
-				8047F78424163C2F0097FC75 /* QuestionPresenterTest.swift */,
+				8050405E2417965900DB59BA /* Routing */,
+				8050405D2417965400DB59BA /* Presentation */,
+				8050405C2417964F00DB59BA /* UI */,
+				8050405B2417964A00DB59BA /* Main */,
 			);
 			path = SwiftQuizTests;
 			sourceTree = "<group>";
@@ -311,7 +460,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8047F78124162FE60097FC75 /* ResultsHelper.swift in Sources */,
-				803F013424125A030033424A /* QuestionTest.swift in Sources */,
 				8047F77F24162F7A0097FC75 /* ResultsPresenterTest.swift in Sources */,
 				803F012C24123D430033424A /* NavigationControllerRouterTest.swift in Sources */,
 				8047F78524163C2F0097FC75 /* QuestionPresenterTest.swift in Sources */,
