@@ -12,20 +12,28 @@ import XCTest
 
 class QuestionTest: XCTestCase {
     
-    func test_hashValue_singleAnswer_returnsTypeHash() {
-        let type = "a string"
+    let aValue = "a value"
+    let anotherValue = "anotherValue"
+    
+    func test_hashValue_forSingleAnswer() {
+        XCTAssertEqual(Question.singleAnswer(aValue).hashValue, Question.singleAnswer(aValue).hashValue)
+        XCTAssertEqual(Question.singleAnswer(anotherValue).hashValue, Question.singleAnswer(anotherValue).hashValue)
         
-        let sut = Question.singleAnswer(type)
-        
-        XCTAssertEqual(sut.hashValue, type.hashValue)
+        XCTAssertNotEqual(Question.singleAnswer(aValue).hashValue, Question.singleAnswer(anotherValue).hashValue)
     }
     
-    func test_hashValue_multipleAnswer_returnsTypeHash() {
-        let type = "a string"
-
-        let sut = Question.multipleAnswer(type)
-
-        XCTAssertEqual(sut.hashValue, type.hashValue)
+    func test_hashValue_forMutipleAnswer() {
+        XCTAssertEqual(Question.multipleAnswer(aValue).hashValue, Question.multipleAnswer(aValue).hashValue)
+        XCTAssertEqual(Question.multipleAnswer(anotherValue).hashValue, Question.multipleAnswer(anotherValue).hashValue)
+        
+        XCTAssertNotEqual(Question.multipleAnswer(aValue).hashValue, Question.multipleAnswer(anotherValue).hashValue)
+    }
+    
+    func test_hashValue_isDifferentForSingleAnswerAndMultipleAnswer() {
+        XCTAssertNotEqual(Question.multipleAnswer(aValue).hashValue, Question.singleAnswer(aValue).hashValue)
+        XCTAssertNotEqual(Question.multipleAnswer(anotherValue).hashValue, Question.singleAnswer(anotherValue).hashValue)
+        
+        XCTAssertNotEqual(Question.multipleAnswer(aValue).hashValue, Question.singleAnswer(anotherValue).hashValue)
     }
     
 }
