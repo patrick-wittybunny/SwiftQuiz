@@ -10,7 +10,8 @@ import Foundation
 import XCTest
 @testable import QuizEngine
 
-class GameTest: XCTestCase {
+@available(*, deprecated)
+class DeprecatedGameTest: XCTestCase {
     
     let router = RouterSpy()
     var game: Game<String, String, RouterSpy>!
@@ -27,14 +28,12 @@ class GameTest: XCTestCase {
         XCTAssertEqual(router.routedResult!.score, 1)
     }
     
-    
     func test_startGame_answerZeroOutOfTwoCorrectly_scores0() {
         router.answerCallback("wrong")
         router.answerCallback("wrong")
         
         XCTAssertEqual(router.routedResult!.score, 0)
     }
-    
     
     func test_startGame_answerTwoOutOfTwoCorrectly_scores2() {
         router.answerCallback("A1")
