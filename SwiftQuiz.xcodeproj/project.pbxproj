@@ -33,8 +33,8 @@
 		805C17AE241221AE0073C597 /* PresentableAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805C17AD241221AE0073C597 /* PresentableAnswer.swift */; };
 		805C17B0241221D20073C597 /* CorrectAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805C17AF241221D20073C597 /* CorrectAnswerCell.swift */; };
 		805C17B2241221E80073C597 /* WrongAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805C17B1241221E80073C597 /* WrongAnswerCell.swift */; };
-		80A0AE082418BADC001029DF /* QuizEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A0AE072418BADC001029DF /* QuizEngine.framework */; };
-		80A0AE092418BADC001029DF /* QuizEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A0AE072418BADC001029DF /* QuizEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80A0AE0F2418BF00001029DF /* QuizEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A0AE0E2418BF00001029DF /* QuizEngine.framework */; };
+		80A0AE102418BF00001029DF /* QuizEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80A0AE0E2418BF00001029DF /* QuizEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,13 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		803F012A24123D0B0033424A /* Embed Frameworks */ = {
+		80A0AE0D2418BEF2001029DF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				80A0AE092418BADC001029DF /* QuizEngine.framework in Embed Frameworks */,
+				80A0AE102418BF00001029DF /* QuizEngine.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,7 +92,7 @@
 		805C17AD241221AE0073C597 /* PresentableAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableAnswer.swift; sourceTree = "<group>"; };
 		805C17AF241221D20073C597 /* CorrectAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectAnswerCell.swift; sourceTree = "<group>"; };
 		805C17B1241221E80073C597 /* WrongAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongAnswerCell.swift; sourceTree = "<group>"; };
-		80A0AE072418BADC001029DF /* QuizEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuizEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80A0AE0E2418BF00001029DF /* QuizEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuizEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80A0AE082418BADC001029DF /* QuizEngine.framework in Frameworks */,
+				80A0AE0F2418BF00001029DF /* QuizEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 		803F012624123D0A0033424A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				80A0AE072418BADC001029DF /* QuizEngine.framework */,
+				80A0AE0E2418BF00001029DF /* QuizEngine.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -361,7 +361,7 @@
 				8056BC292410C1340028B16E /* Sources */,
 				8056BC2A2410C1340028B16E /* Frameworks */,
 				8056BC2B2410C1340028B16E /* Resources */,
-				803F012A24123D0B0033424A /* Embed Frameworks */,
+				80A0AE0D2418BEF2001029DF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
