@@ -8,6 +8,13 @@
 
 import Foundation
 
+public protocol QuizDelegate {
+    associatedtype Question: Hashable
+    associatedtype Answer
+    func routeTo(question: Question, answerCallback: @escaping (Answer) -> Void)
+    func routeTo(result: Results<Question, Answer>)
+}
+
 @available(*, deprecated)
 public protocol Router {
     associatedtype Question: Hashable
