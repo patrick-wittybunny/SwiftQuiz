@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.com/patrick-wittybunny/SwiftQuiz.svg?branch=master)](https://travis-ci.com/patrick-wittybunny/SwiftQuiz)
+<!-- [![Build Status](https://travis-ci.com/patrick-wittybunny/SwiftQuiz.svg?branch=master)](https://travis-ci.com/patrick-wittybunny/SwiftQuiz) -->
