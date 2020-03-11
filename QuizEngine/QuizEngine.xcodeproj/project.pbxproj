@@ -22,6 +22,8 @@
 		805C17B8241232FF0073C597 /* DeprecatedGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805C17B7241232FF0073C597 /* DeprecatedGameTest.swift */; };
 		805C17BA2412338A0073C597 /* DeprecatedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805C17B92412338A0073C597 /* DeprecatedGame.swift */; };
 		80A0AE232418F91F001029DF /* QuizDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A0AE222418F91F001029DF /* QuizDelegate.swift */; };
+		80A0AE262418F9BE001029DF /* QuizTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A0AE242418F9A2001029DF /* QuizTest.swift */; };
+		80A0AE272418F9BE001029DF /* QuizTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A0AE242418F9A2001029DF /* QuizTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,7 @@
 		805C17B7241232FF0073C597 /* DeprecatedGameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedGameTest.swift; sourceTree = "<group>"; };
 		805C17B92412338A0073C597 /* DeprecatedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedGame.swift; sourceTree = "<group>"; };
 		80A0AE222418F91F001029DF /* QuizDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDelegate.swift; sourceTree = "<group>"; };
+		80A0AE242418F9A2001029DF /* QuizTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,7 @@
 		801607042410C930002C2E5D /* QuizEngineTests */ = {
 			isa = PBXGroup;
 			children = (
+				80A0AE242418F9A2001029DF /* QuizTest.swift */,
 				801607072410C930002C2E5D /* Info.plist */,
 				801607112410C994002C2E5D /* FlowTest.swift */,
 				805C17B7241232FF0073C597 /* DeprecatedGameTest.swift */,
@@ -323,6 +327,7 @@
 			files = (
 				801607122410C994002C2E5D /* FlowTest.swift in Sources */,
 				805C17B8241232FF0073C597 /* DeprecatedGameTest.swift in Sources */,
+				80A0AE272418F9BE001029DF /* QuizTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +348,7 @@
 			files = (
 				803F012424123C640033424A /* FlowTest.swift in Sources */,
 				803F012524123C640033424A /* DeprecatedGameTest.swift in Sources */,
+				80A0AE262418F9BE001029DF /* QuizTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
