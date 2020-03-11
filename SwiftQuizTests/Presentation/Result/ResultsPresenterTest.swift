@@ -78,7 +78,5 @@ class ResultsPresenterTest: XCTestCase {
         XCTAssertEqual(sut.presentableAnswers.last!.answer, "A1, A4")
         XCTAssertEqual(sut.presentableAnswers.last!.wrongAnswer, nil)
     }
- 
-    // MARK: - Helpers
-    
+
 }
