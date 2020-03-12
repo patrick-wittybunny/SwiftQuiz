@@ -8,9 +8,22 @@
 
 import Foundation
 
+
+public typealias QuestionAndAnswer<Question, Answer> = (question: Question, answer: Answer)
+
 public protocol QuizDelegate {
     associatedtype Question: Hashable
     associatedtype Answer
-    func handle(question: Question, answerCallback: @escaping (Answer) -> Void)
+    
+    func answer(for question: Question, completion: @escaping (Answer) -> Void)
     func handle(result: Results<Question, Answer>)
+}
+
+public protocol QuizResultBuilder {
+    associatedtype Question: Hashable
+    associatedtype Answer
+    associatedtype Results
+    
+    func build(from: [Question: Answer]) -> Results
+    
 }
