@@ -14,8 +14,6 @@ import XCTest
 
 class ResultsPresenterTest: XCTestCase {
     
-    let singleAnswerQuestion = Question.singleAnswer("Q1")
-    let multipleAnswerQuestion = Question.multipleAnswer("Q2")
     
     func test_title_returnsFormattedTitle() {
         XCTAssertEqual(makeSUT().title, "Result")
@@ -71,6 +69,9 @@ class ResultsPresenterTest: XCTestCase {
     }
     
     // MARK: - Helpers
+    
+    private let singleAnswerQuestion = Question.singleAnswer("Q1")
+    private let multipleAnswerQuestion = Question.multipleAnswer("Q2")
     
     private func makeSUT(
             userAnswers: ResultsPresenter.Answers = [],
