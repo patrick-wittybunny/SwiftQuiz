@@ -69,13 +69,16 @@ class iOSViewControllerFactoryTest: XCTestCase {
         return iOSViewControllerFactory(questions: [singleAnswerQuestion, multipleAnswerQuestion], options: options, correctAnswers: correctAnswers)
     }
     
+    func makeSUT(options: Dictionary<Question<String>, [String]> = [:], correctAnswers: [(question: Question<String>, answers: [String])] = []) -> iOSViewControllerFactory {
+        return iOSViewControllerFactory(options: options, correctAnswers: correctAnswers)
+    }
+    
     func makeResults() -> (controller: ResultsViewController, presenter: ResultsPresenter) {
-        let questions = [singleAnswerQuestion, multipleAnswerQuestion]
-        let correctAnswers = [singleAnswerQuestion: ["A1"], multipleAnswerQuestion: ["A2", "A3"]]
-        let userAnswers = [singleAnswerQuestion: ["A1"], multipleAnswerQuestion: ["A2", "A3"]]
+        let userAnswers = [(singleAnswerQuestion, ["A1"]), (multipleAnswerQuestion, ["A2", "A3"])]
+        let correctAnswers = [(singleAnswerQuestion, ["A1"]), (multipleAnswerQuestion, ["A2", "A3"])]
 
-        let result = Results.make(answers: userAnswers, score: 2)
-        let presenter = ResultsPresenter(result: result, questions: questions, correctAnswers: correctAnswers)
+        let result = Results.make(answers: [singleAnswerQuestion: ["A1"], multipleAnswerQuestion: ["A1", "A2"]], score: 2)
+        let presenter = ResultsPresenter(userAnswers: userAnswers, correctAnswers: correctAnswers, scorer: { _,_ in result.score})
         
         let controller = makeSUT(correctAnswers: correctAnswers).resultViewController(for: result) as! ResultsViewController
         
@@ -83,12 +86,6 @@ class iOSViewControllerFactoryTest: XCTestCase {
     }
     
     func makeQuestionController(question: Question<String> = .singleAnswer("")) -> QuestionViewController {
-        return makeSUT(options: [question: options]).questionViewController(for: question, answerCallback: { _ in }) as! QuestionViewController
-    }
-}
-
-private extension ResultsPresenter {
-    convenience init(result: Results<Question<String>, [String]>, questions: [Question<String>], correctAnswers: Dictionary<Question<String>, [String]> ) {
-        self.init(userAnswers: questions.map { ($0, result.answers[$0]!) }, correctAnswers: questions.map { ($0, correctAnswers[$0]!) }, scorer: { _, _ in result.score })
+        return makeSUT(options: [question: options], correctAnswers: [:]).questionViewController(for: question, answerCallback: { _ in }) as! QuestionViewController
     }
 }
