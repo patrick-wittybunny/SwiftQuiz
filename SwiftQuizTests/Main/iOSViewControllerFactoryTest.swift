@@ -86,3 +86,9 @@ class iOSViewControllerFactoryTest: XCTestCase {
         return makeSUT(options: [question: options]).questionViewController(for: question, answerCallback: { _ in }) as! QuestionViewController
     }
 }
+
+private extension ResultsPresenter {
+    convenience init(result: Results<Question<String>, [String]>, questions: [Question<String>], correctAnswers: Dictionary<Question<String>, [String]> ) {
+        self.init(userAnswers: questions.map { ($0, result.answers[$0]!) }, correctAnswers: questions.map { ($0, correctAnswers[$0]!) }, scorer: { _, _ in result.score })
+    }
+}

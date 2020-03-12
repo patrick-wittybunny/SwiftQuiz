@@ -23,12 +23,6 @@ final class ResultsPresenter {
         self.scorer = scorer
     }
     
-    init(result: Results<Question<String>, [String]>, questions: [Question<String>], correctAnswers: Dictionary<Question<String>, [String]> ) {
-        self.userAnswers = questions.map { ($0, result.answers[$0]!) }
-        self.correctAnswers = questions.map { ($0, correctAnswers[$0]!) }
-        self.scorer = { _, _ in result.score }
-    }
-    
     var title: String {
         return "Result"
     }
