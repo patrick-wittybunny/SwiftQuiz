@@ -67,14 +67,14 @@ class FlowTest: XCTestCase {
     func test_start_withOneQuestions_doesNotCompleteQuiz() {
         makeSUT(questions: ["Q1"]).start()
         
-        XCTAssertTrue(delegate.completedQuizes.isEmpty)
+        XCTAssertTrue(delegate.completedQuizzes.isEmpty)
     }
     
     func test_start_withNoQuestions_completesWithEmptyQuiz() {
         makeSUT(questions: []).start()
         
-        XCTAssertEqual(delegate.completedQuizes.count, 1)
-        XCTAssertTrue(delegate.completedQuizes.first!.isEmpty)
+        XCTAssertEqual(delegate.completedQuizzes.count, 1)
+        XCTAssertTrue(delegate.completedQuizzes.first!.isEmpty)
     }
     
     func test_startAndAnswerFirstQuestion_withTwoQuestions_doesNg() {
@@ -86,14 +86,15 @@ class FlowTest: XCTestCase {
         XCTAssertNil(delegate.handledResults)
     }
 
-    func test_startAndAnswerFirstAndSecondQuestion_withTwoQuestions_delegatesResultHandlin() {
+    func test_startAndAnswerFirstAndSecondQuestion_withTwoQuestions_completesQuiz() {
         let sut = makeSUT(questions: ["Q1", "Q2"])
         sut.start()
         
         delegate.answerCompletion("A1")
         delegate.answerCompletion("A2")
         
-        XCTAssertEqual(delegate.handledResults!.answers, ["Q1": "A1", "Q2": "A2"])
+        XCTAssertEqual(delegate.completedQuizzes.count, 1)
+        XCTAssertTrue(delegate.completedQuizzes[0].elementsEqual([("Q1", "A1"), ("Q2", "A2")], by: ==))
     }
 
     func test_startAndAnswerFirstAndSecondQuestion_withTwoQuestions_scores() {
@@ -142,7 +143,7 @@ class FlowTest: XCTestCase {
     
     private class DelegateSpy: QuizDelegate {
         
-        var completedQuizes: [[(String, String)]] = []
+        var completedQuizzes: [[(String, String)]] = []
         
         var handledQuestions: [String] = []
         
@@ -156,7 +157,7 @@ class FlowTest: XCTestCase {
         }
         
         func didCompleteQuiz(withAnswers answers: [(question: String, answer: String)]) {
-            completedQuizes.append(answers)
+            completedQuizzes.append(answers)
         }
         
         func handle(result: Results<String, String>) {
