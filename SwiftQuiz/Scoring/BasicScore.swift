@@ -9,7 +9,7 @@
 import Foundation
 
 final class BasicScore {
-    static func score(for answers: [String], comparingTo matchingAnswers:[String] = []) -> Int {
+    static func score<T: Equatable>(for answers: [T], comparingTo matchingAnswers:[T] = []) -> Int {
         return zip(answers, matchingAnswers).reduce(0) { score, tuple in
             return score + (tuple.0 == tuple.1 ? 1 : 0)
         }
