@@ -13,5 +13,5 @@ public protocol QuizDelegate {
     associatedtype Answer
     
     func answer(for question: Question, completion: @escaping (Answer) -> Void)
-    func didCompleteQuiz(withAnswers answers: [(question: Question, answer: Answer)])
+    func didComplete(withAnswers answers: [(question: Question, answer: Answer)])
 }

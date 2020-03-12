@@ -20,7 +20,7 @@ class DelegateSpy: QuizDelegate {
            answerCompletions.append(completion)
        }
        
-       func didCompleteQuiz(withAnswers answers: [(question: String, answer: String)]) {
+       func didComplete(withAnswers answers: [(question: String, answer: String)]) {
            completedQuizzes.append(answers)
        }
    }

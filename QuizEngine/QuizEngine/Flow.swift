@@ -31,7 +31,7 @@ class Flow <Delegate: QuizDelegate> {
             let question = questions[index]
             delegate.answer(for: question, completion: answer(for: question, at: index))
         } else {
-            delegate.didCompleteQuiz(withAnswers: newAnswers)
+            delegate.didComplete(withAnswers: newAnswers)
         }
     }
     

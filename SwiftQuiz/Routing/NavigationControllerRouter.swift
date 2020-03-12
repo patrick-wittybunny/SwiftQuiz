@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuizEngine
 
-class NavigationControllerRouter: Router{
+class NavigationControllerRouter: Router {
     
     private let navigationController: UINavigationController
     private let factory: ViewControllerFactory
@@ -25,7 +25,7 @@ class NavigationControllerRouter: Router{
     }
     
     func routeTo(result: Results<Question<String>, [String]>) {
-        show(factory.resultViewController(for: result))
+//        show(factory.resultViewController(for: result))
     }
     
     func answer(for question: QuizEngine.Question<String>, completion: @escaping ([String]) -> Void) {
@@ -43,8 +43,9 @@ class NavigationControllerRouter: Router{
         }
     }
 
-    func didCompleteQuiz(withAnswers answers: [(question: QuizEngine.Question<String>, answer: [String])]) {
+    func didComplete(withAnswers answers: [(question: QuizEngine.Question<String>, answers: [String])]) {
         
+        show(factory.resultViewController(for: answers))
     }
     
     
