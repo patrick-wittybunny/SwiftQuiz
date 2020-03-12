@@ -15,25 +15,25 @@ class FlowTest: XCTestCase {
     func test_start_withNoQuestions_doesNotDelegateQuestionHandling() {
         makeSUT(questions: []).start()
         
-        XCTAssertTrue(delegate.handledQuestions.isEmpty)
+        XCTAssertTrue(delegate.questionsAsked.isEmpty)
     }
     
     func test_start_withOneQuestion_delegatesCorrectQuestionHandling() {
         makeSUT(questions: ["Q1"]).start()
         
-        XCTAssertEqual(delegate.handledQuestions, ["Q1"])
+        XCTAssertEqual(delegate.questionsAsked, ["Q1"])
     }
 
     func test_start_withOneQuestion_delegatesAnotherCorrectQuestionHandling() {
         makeSUT(questions: ["Q2"]).start()
         
-        XCTAssertEqual(delegate.handledQuestions, ["Q2"])
+        XCTAssertEqual(delegate.questionsAsked, ["Q2"])
     }
     
     func test_start_withTwoQuestions_delegatesFirstQuestionHandling() {
         makeSUT(questions: ["Q1", "Q2"]).start()
         
-        XCTAssertEqual(delegate.handledQuestions, ["Q1"])
+        XCTAssertEqual(delegate.questionsAsked, ["Q1"])
     }
 
     func test_startTwice_withTwoQuestions_delegatesFirstQuestionHandlingTwice() {
@@ -42,7 +42,7 @@ class FlowTest: XCTestCase {
         sut.start()
         sut.start()
         
-        XCTAssertEqual(delegate.handledQuestions, ["Q1", "Q1"])
+        XCTAssertEqual(delegate.questionsAsked, ["Q1", "Q1"])
     }
 
     func test_startAndAnswerFirstAndSecondQuestion_withThreeQuestions_delegatesSecondAndThirdQuestionHandling() {
@@ -52,7 +52,7 @@ class FlowTest: XCTestCase {
         delegate.answerCompletion("A1")
         delegate.answerCompletion("A2")
 
-        XCTAssertEqual(delegate.handledQuestions, ["Q1", "Q2", "Q3"])
+        XCTAssertEqual(delegate.questionsAsked, ["Q1", "Q2", "Q3"])
     }
 
     func test_startAndAnswerFirstQuestion_withOneQuestion_delegatesAnotherQuestionHandling() {
@@ -61,7 +61,7 @@ class FlowTest: XCTestCase {
         
         delegate.answerCompletion("A1")
         
-        XCTAssertEqual(delegate.handledQuestions, ["Q1"])
+        XCTAssertEqual(delegate.questionsAsked, ["Q1"])
     }
     
     func test_start_withOneQuestions_doesNotCompleteQuiz() {
@@ -94,7 +94,7 @@ class FlowTest: XCTestCase {
         delegate.answerCompletion("A2")
         
         XCTAssertEqual(delegate.completedQuizzes.count, 1)
-        XCTAssertTrue(delegate.completedQuizzes[0].elementsEqual([("Q1", "A1"), ("Q2", "A2")], by: ==))
+        assertEqual(delegate.completedQuizzes[0], [("Q1", "A1"), ("Q2", "A2")])
     }
 
     func test_startAndAnswerFirstAndSecondQuestion_withTwoQuestions_scores() {
@@ -124,15 +124,16 @@ class FlowTest: XCTestCase {
 
     // MARK: Helpers
     
-    private let delegate = DelegateSpy()
-    
-    private weak var weakSUT: Flow<DelegateSpy>?
-    
     override func tearDown() {
         super.tearDown()
         
         XCTAssertNil(weakSUT, "Memory leak detected. Weak reference to the SUT instance is not nil.")
     }
+    
+    private let delegate = DelegateSpy()
+    
+    private weak var weakSUT: Flow<DelegateSpy>?
+    
     
     private func makeSUT(questions: [String],
                  scoring: @escaping ([String: String]) -> Int = { _ in 0 }) -> Flow<DelegateSpy> {
@@ -141,18 +142,22 @@ class FlowTest: XCTestCase {
         return sut
     }
     
+    private func assertEqual(_ a1: [(String, String)], _ a2: [(String, String)], file: StaticString = #file, line: UInt = #line) {
+        XCTAssertTrue(a1.elementsEqual(a2, by: ==), "\(a1) is not euqal to \(a2)", file: file, line: line)
+    }
+    
     private class DelegateSpy: QuizDelegate {
         
         var completedQuizzes: [[(String, String)]] = []
         
-        var handledQuestions: [String] = []
+        var questionsAsked: [String] = []
         
         var handledResults: Results<String, String>? = nil
         
         var answerCompletion: (String) -> Void = { _ in }
         
         func answer(for question: String, completion answerCallback: @escaping (String) -> Void) {
-            handledQuestions.append(question)
+            questionsAsked.append(question)
             self.answerCompletion = answerCallback
         }
         
