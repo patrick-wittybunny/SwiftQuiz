@@ -49,8 +49,8 @@ class FlowTest: XCTestCase {
         let sut = makeSUT(questions: ["Q1", "Q2", "Q3"])
         sut.start()
         
-        delegate.answerCallback("A1")
-        delegate.answerCallback("A2")
+        delegate.answerCompletion("A1")
+        delegate.answerCompletion("A2")
 
         XCTAssertEqual(delegate.handledQuestions, ["Q1", "Q2", "Q3"])
     }
@@ -59,7 +59,7 @@ class FlowTest: XCTestCase {
         let sut = makeSUT(questions: ["Q1"])
         sut.start()
         
-        delegate.answerCallback("A1")
+        delegate.answerCompletion("A1")
         
         XCTAssertEqual(delegate.handledQuestions, ["Q1"])
     }
@@ -80,7 +80,7 @@ class FlowTest: XCTestCase {
         let sut = makeSUT(questions: ["Q1", "Q2"])
         sut.start()
         
-        delegate.answerCallback("A1")
+        delegate.answerCompletion("A1")
         
         XCTAssertNil(delegate.handledResults)
     }
@@ -89,8 +89,8 @@ class FlowTest: XCTestCase {
         let sut = makeSUT(questions: ["Q1", "Q2"])
         sut.start()
         
-        delegate.answerCallback("A1")
-        delegate.answerCallback("A2")
+        delegate.answerCompletion("A1")
+        delegate.answerCompletion("A2")
         
         XCTAssertEqual(delegate.handledResults!.answers, ["Q1": "A1", "Q2": "A2"])
     }
@@ -99,8 +99,8 @@ class FlowTest: XCTestCase {
         let sut = makeSUT(questions: ["Q1", "Q2"], scoring: { _ in 10 })
         sut.start()
         
-        delegate.answerCallback("A1")
-        delegate.answerCallback("A2")
+        delegate.answerCompletion("A1")
+        delegate.answerCompletion("A2")
         
         XCTAssertEqual(delegate.handledResults!.score, 10)
     }
@@ -113,8 +113,8 @@ class FlowTest: XCTestCase {
         })
         sut.start()
         
-        delegate.answerCallback("A1")
-        delegate.answerCallback("A2")
+        delegate.answerCompletion("A1")
+        delegate.answerCompletion("A2")
         
         XCTAssertEqual(receivedAnswers, ["Q1": "A1", "Q2": "A2"])
     }
@@ -143,11 +143,11 @@ class FlowTest: XCTestCase {
         
         var handledQuestions: [String] = []
         var handledResults: Results<String, String>? = nil
-        var answerCallback: (String) -> Void = { _ in }
+        var answerCompletion: (String) -> Void = { _ in }
         
         func answer(for question: String, completion answerCallback: @escaping (String) -> Void) {
             handledQuestions.append(question)
-            self.answerCallback = answerCallback
+            self.answerCompletion = answerCallback
         }
         
         func handle(result: Results<String, String>) {
