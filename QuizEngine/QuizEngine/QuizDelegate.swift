@@ -8,9 +8,6 @@
 
 import Foundation
 
-
-public typealias QuestionAndAnswer<Question, Answer> = (question: Question, answer: Answer)
-
 public protocol QuizDelegate {
     associatedtype Question: Hashable
     associatedtype Answer
@@ -20,17 +17,4 @@ public protocol QuizDelegate {
     
     @available(*, deprecated, message: "use didComplete(withAnswers:) instead")
     func handle(result: Results<Question, Answer>)
-}
-
-public extension QuizDelegate {
-    func didCompleteQuiz(withAnswers answers: [(question: Question, answer: Answer)]) {}
-}
-
-public protocol QuizResultBuilder {
-    associatedtype Question: Hashable
-    associatedtype Answer
-    associatedtype Results
-    
-    func build(from: [Question: Answer]) -> Results
-    
 }
