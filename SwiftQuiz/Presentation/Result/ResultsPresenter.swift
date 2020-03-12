@@ -9,30 +9,35 @@
 import Foundation
 import QuizEngine
 
-struct ResultsPresenter {
-    let questions: [Question<String>]
-    let result: Results<Question<String>, [String]>
-    let correctAnswers: Dictionary<Question<String>, [String]>
+final class ResultsPresenter {
+    typealias Answers = [(question: Question<String>, answers: [String])]
+    typealias Scorer = ([[String]], [[String]]) -> Int
+    
+    private let userAnswers: Answers
+    private let correctAnswers: Answers
+    private let scorer: Scorer
+    
+    init(result: Results<Question<String>, [String]>, questions: [Question<String>], correctAnswers: Dictionary<Question<String>, [String]> ) {
+        self.userAnswers = questions.map { ($0, result.answers[$0]!) }
+        self.correctAnswers = questions.map { ($0, correctAnswers[$0]!) }
+        self.scorer = { _, _ in result.score }
+    }
     
     var title: String {
         return "Result"
     }
     
     var summary: String {
-        return "You got \(result.score)/\(result.answers.count) correct"
+        return "You got \(score)/\(userAnswers.count) correct"
+    }
+    
+    private var score: Int {
+        return scorer(userAnswers.map { $0.answers }, correctAnswers.map { $0.answers })
     }
     
     var presentableAnswers: [PresentableAnswer] {
-        return questions.map { question in
-            guard let userAnswer = result.answers[question] else {
-                fatalError("Couldn't find user answer for question: \(question)")
-            }
-            
-            guard let correctAnswer = correctAnswers[question] else {
-                fatalError("Couldn't find correct answer for question: \(question)")
-            }
-            
-            return presentableAnswer(question, userAnswer, correctAnswer)
+        return zip(userAnswers, correctAnswers).map { userAnswer, correctAnswer in
+            return presentableAnswer(userAnswer.question, userAnswer.answers, correctAnswer.answers)
         }
     }
     

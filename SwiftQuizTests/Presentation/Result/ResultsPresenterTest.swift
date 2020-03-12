@@ -18,21 +18,22 @@ class ResultsPresenterTest: XCTestCase {
     let multipleAnswerQuestion = Question.multipleAnswer("Q2")
     
     func test_title_returnsFormattedTitle() {
-        let sut = ResultsPresenter(questions: [], result: .make(), correctAnswers: [:])
+        let sut = ResultsPresenter(result: .make(), questions: [], correctAnswers: [:])
         
         XCTAssertEqual(sut.title, "Result")
     }
     
     func test_summary_withTwoQuestionsAndScoreOne_returnsSummary() {
         let answers = [singleAnswerQuestion: ["A1"], multipleAnswerQuestion: ["A2", "A3"]]
+        let correctAnswers = [singleAnswerQuestion: ["A1"], multipleAnswerQuestion: ["A1", "A4"]]
         let result = Results.make(answers: answers, score: 1)
         let orderedQuestions = [singleAnswerQuestion, multipleAnswerQuestion]
-        let sut = ResultsPresenter(questions: orderedQuestions, result: result, correctAnswers: [:])
+        let sut = ResultsPresenter(result: result, questions: orderedQuestions, correctAnswers: correctAnswers)
         XCTAssertEqual(sut.summary, "You got 1/2 correct")
     }
     
     func test_presentableAnswers_withoutQuestions_isEmpty() {
-        let sut = ResultsPresenter(questions: [], result: .make(), correctAnswers: [:])
+        let sut = ResultsPresenter(result: .make(), questions: [], correctAnswers: [:])
         
         XCTAssertTrue(sut.presentableAnswers.isEmpty)
     }
@@ -41,7 +42,7 @@ class ResultsPresenterTest: XCTestCase {
         let answers = [singleAnswerQuestion: ["A1"]]
         let correctAnswers = [singleAnswerQuestion: ["A2"]]
         let result = Results.make(answers: answers, score: 0)
-        let sut = ResultsPresenter(questions: [singleAnswerQuestion], result: result, correctAnswers: correctAnswers)
+        let sut = ResultsPresenter(result: result, questions: [singleAnswerQuestion], correctAnswers: correctAnswers)
         
         XCTAssertEqual(sut.presentableAnswers.count, 1)
         XCTAssertEqual(sut.presentableAnswers.first!.question, "Q1")
@@ -53,7 +54,7 @@ class ResultsPresenterTest: XCTestCase {
         let answers = [multipleAnswerQuestion: ["A1", "A4"]]
         let correctAnswers = [multipleAnswerQuestion: ["A2", "A3"]]
         let result = Results.make(answers: answers, score: 0)
-        let sut = ResultsPresenter(questions: [multipleAnswerQuestion], result: result, correctAnswers: correctAnswers)
+        let sut = ResultsPresenter(result: result, questions: [multipleAnswerQuestion], correctAnswers: correctAnswers)
         
         XCTAssertEqual(sut.presentableAnswers.count, 1)
         XCTAssertEqual(sut.presentableAnswers.first!.question, "Q2")
@@ -66,7 +67,7 @@ class ResultsPresenterTest: XCTestCase {
         let correctAnswers = [multipleAnswerQuestion: ["A1", "A4"], singleAnswerQuestion: ["A1"]]
         let orderedQuestions = [singleAnswerQuestion, multipleAnswerQuestion]
         let result = Results.make(answers: answers, score: 2)
-        let sut = ResultsPresenter(questions: orderedQuestions, result: result, correctAnswers: correctAnswers)
+        let sut = ResultsPresenter(result: result, questions: orderedQuestions, correctAnswers: correctAnswers)
         
         XCTAssertEqual(sut.presentableAnswers.count, 2)
         XCTAssertEqual(sut.presentableAnswers.first!.question, "Q1")
