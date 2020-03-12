@@ -18,6 +18,11 @@
 		804C8ED8241A08EA00012091 /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804C8ED7241A08EA00012091 /* Assertions.swift */; };
 		804C8EDA241A093300012091 /* DelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804C8ED9241A093300012091 /* DelegateSpy.swift */; };
 		804C8EDC241A0A8B00012091 /* ScoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804C8EDB241A0A8B00012091 /* ScoreTest.swift */; };
+		804C8EDD241A10AD00012091 /* QuizDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A0AE222418F91F001029DF /* QuizDelegate.swift */; };
+		804C8EDE241A10BC00012091 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A0AE282418FC9B001029DF /* Quiz.swift */; };
+		804C8EDF241A10D500012091 /* DelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804C8ED9241A093300012091 /* DelegateSpy.swift */; };
+		804C8EE0241A10D700012091 /* ScoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804C8EDB241A0A8B00012091 /* ScoreTest.swift */; };
+		804C8EE1241A10DB00012091 /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804C8ED7241A08EA00012091 /* Assertions.swift */; };
 		805040412417731C00DB59BA /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805040402417731B00DB59BA /* Question.swift */; };
 		8050404D2417762F00DB59BA /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805040402417731B00DB59BA /* Question.swift */; };
 		805C17B8241232FF0073C597 /* DeprecatedGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805C17B7241232FF0073C597 /* DeprecatedGameTest.swift */; };
@@ -347,6 +352,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8050404D2417762F00DB59BA /* Question.swift in Sources */,
+				804C8EDE241A10BC00012091 /* Quiz.swift in Sources */,
+				804C8EDD241A10AD00012091 /* QuizDelegate.swift in Sources */,
 				803F011B24123C550033424A /* Flow.swift in Sources */,
 				803F011E24123C550033424A /* DeprecatedGame.swift in Sources */,
 			);
@@ -356,9 +363,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				804C8EE1241A10DB00012091 /* Assertions.swift in Sources */,
+				804C8EE0241A10D700012091 /* ScoreTest.swift in Sources */,
 				803F012424123C640033424A /* FlowTest.swift in Sources */,
 				803F012524123C640033424A /* DeprecatedGameTest.swift in Sources */,
 				80A0AE262418F9BE001029DF /* QuizTest.swift in Sources */,
+				804C8EDF241A10D500012091 /* DelegateSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
