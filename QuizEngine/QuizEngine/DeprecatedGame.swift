@@ -8,6 +8,13 @@
 
 import Foundation
 
+
+@available(*, deprecated)
+public struct Results<Question: Hashable, Answer> {
+    public var answers: [Question: Answer]
+    public var score: Int
+}
+
 @available(*, deprecated)
 public protocol Router {
     associatedtype Question: Hashable
