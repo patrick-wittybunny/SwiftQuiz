@@ -77,7 +77,7 @@ class FlowTest: XCTestCase {
         XCTAssertTrue(delegate.completedQuizes.first!.isEmpty)
     }
     
-    func test_startAndAnswerFirstQuestion_withTwoQuestions_doesNotDelegateResultHandling() {
+    func test_startAndAnswerFirstQuestion_withTwoQuestions_doesNg() {
         let sut = makeSUT(questions: ["Q1", "Q2"])
         sut.start()
         
