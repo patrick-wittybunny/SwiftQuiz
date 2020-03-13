@@ -109,7 +109,7 @@ class NavigationControllerRouterTest: XCTestCase {
     }
 
     
-    func test_routeToResult_showsResult() {
+    func test_didCompleteQuiz_showsResultsController() {
         let viewController = UIViewController()
         let userAnswers = [(singleAnswerQuestion, ["A1"])]
         
