@@ -20,7 +20,7 @@ final class NavigationControllerRouter: QuizDelegate {
         self.factory = factory
     }
     
-    func answer(for question: QuizEngine.Question<String>, completion: @escaping ([String]) -> Void) {
+    func answer(for question: Question<String>, completion: @escaping ([String]) -> Void) {
         switch question {
         case .singleAnswer:
             show(factory.questionViewController(for: question, answerCallback: completion))
@@ -35,7 +35,7 @@ final class NavigationControllerRouter: QuizDelegate {
         }
     }
 
-    func didComplete(withAnswers answers: [(question: QuizEngine.Question<String>, answer: [String])]) {
+    func didComplete(withAnswers answers: [(question: Question<String>, answer: [String])]) {
         show(factory.resultViewController(for: answers))
     }
     
