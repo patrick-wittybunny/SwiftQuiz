@@ -8,7 +8,6 @@
 
 import Foundation
 import XCTest
-@testable import SwiftQuiz
 
 class ScoreTest: XCTestCase {
     
