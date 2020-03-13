@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 import QuizEngine
 
-class NavigationControllerRouter: QuizDelegate {
-    
+final class NavigationControllerRouter: QuizDelegate {
     
     private let navigationController: UINavigationController
     private let factory: ViewControllerFactory
