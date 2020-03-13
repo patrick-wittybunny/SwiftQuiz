@@ -8,7 +8,7 @@
 
 import Foundation
 
-@available(*, deprecated)
+@available(*, deprecated, message: "scoring won't be supported in the future")
 public struct Results<Question: Hashable, Answer> {
     public var answers: [Question: Answer]
     public var score: Int
