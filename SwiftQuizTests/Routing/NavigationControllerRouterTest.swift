@@ -13,14 +13,6 @@ import XCTest
 
 class NavigationControllerRouterTest: XCTestCase {
 
-    let navigationController = NonAnimatedNavigationController()
-    let factory = ViewControllerFactoryStub()
-    let singleAnswerQuestion = Question.singleAnswer("Q1")
-    let multipleAnswerQuestion = Question.multipleAnswer("Q2")
-    
-    lazy var sut: NavigationControllerRouter = {
-        return NavigationControllerRouter(self.navigationController, factory: self.factory)
-    } ()
     
     func test_answerForQuestion_showsQuestionController() {
         let viewController = UIViewController()
@@ -168,7 +160,20 @@ class NavigationControllerRouterTest: XCTestCase {
         }
     }
     
+    // MARK: - Helpers
+    private let navigationController = NonAnimatedNavigationController()
+    private let factory = ViewControllerFactoryStub()
+    private let singleAnswerQuestion = Question.singleAnswer("Q1")
+    private let multipleAnswerQuestion = Question.multipleAnswer("Q2")
+    
+    private lazy var sut: NavigationControllerRouter = {
+        return NavigationControllerRouter(self.navigationController, factory: self.factory)
+    } ()
+
+    
 }
+
+
 
 private extension UIBarButtonItem {
     func simulateTap() {
