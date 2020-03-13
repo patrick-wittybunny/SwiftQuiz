@@ -13,7 +13,7 @@ import QuizEngine
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var game: Game<Question<String>, [String], NavigationControllerRouter>?
+    var quiz: Quiz?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,20 +28,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let option1 = "Sana"
         let option2 = "Chaeyoung"
         let option3 = "Minju"
-        let options = [option1, option2, option3]
+        let options1 = [option1, option2, option3]
 
-        let correctAnswers = [question: [option1], question2: [option1, option2]]
+        let option4 = "Nayeon"
+        let option5 = "Sana"
+        let option6 = "Sojin"
+        let options2 = [option4, option5, option6]
+        
+        let options = [question: options1, question2: options2]
+        
+        let correctAnswers = [(question, [option1]), (question2, [option5, option4])]
 
         let navigationController = UINavigationController()
-        let factory = iOSViewControllerFactory(options: [question: options, question2: options],
-                                               correctAnswers: [(question, [option3]), (question2, [option1, option2])])
+        let factory = iOSViewControllerFactory(options: options, correctAnswers: correctAnswers)
         let router = NavigationControllerRouter(navigationController, factory: factory)
 
         window.rootViewController = navigationController
 
         self.window = window
         window.makeKeyAndVisible()
-        game = startGame(questions: questions, router: router, correctAnswers: correctAnswers)
+        quiz = Quiz.start(questions: questions, delegate: router)
 //
         
         return true
